@@ -1,0 +1,279 @@
+/* الأنماط العامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #000000, #000000);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* العناصر المجردة (الأشكال) */
+.shapes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.shape {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(188, 158, 255, 0.4));
+    border-radius: 50% 0;
+    transform: rotate(45deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* إنشاء عدة أشكال بأحجام ومواقع مختلفة */
+.shape:nth-child(1) {
+    width: 80px;
+    height: 15px;
+    top: 10%;
+    left: 10%;
+    animation: float 15s infinite ease-in-out;
+}
+
+.shape:nth-child(2) {
+    width: 120px;
+    height: 20px;
+    top: 20%;
+    left: 20%;
+    animation: float 18s infinite ease-in-out reverse;
+}
+
+.shape:nth-child(3) {
+    width: 70px;
+    height: 12px;
+    top: 30%;
+    left: 15%;
+    animation: float 12s infinite ease-in-out;
+}
+
+.shape:nth-child(4) {
+    width: 90px;
+    height: 14px;
+    bottom: 20%;
+    left: 18%;
+    animation: float 16s infinite ease-in-out;
+}
+
+.shape:nth-child(5) {
+    width: 110px;
+    height: 18px;
+    bottom: 30%;
+    left: 25%;
+    animation: float 14s infinite ease-in-out reverse;
+}
+
+/* الأشكال على اليمين */
+.shape:nth-child(6) {
+    width: 70px;
+    height: 12px;
+    top: 15%;
+    right: 15%;
+    animation: float 15s infinite ease-in-out;
+}
+
+.shape:nth-child(7) {
+    width: 90px;
+    height: 14px;
+    top: 25%;
+    right: 20%;
+    animation: float 17s infinite ease-in-out reverse;
+}
+
+.shape:nth-child(8) {
+    width: 60px;
+    height: 10px;
+    top: 40%;
+    right: 18%;
+    animation: float 13s infinite ease-in-out;
+}
+
+.shape:nth-child(9) {
+    width: 80px;
+    height: 12px;
+    bottom: 30%;
+    right: 25%;
+    animation: float 16s infinite ease-in-out;
+}
+
+.shape:nth-child(10) {
+    width: 100px;
+    height: 16px;
+    bottom: 20%;
+    right: 15%;
+    animation: float 14s infinite ease-in-out reverse;
+}
+
+/* تحريك الأشكال */
+@keyframes float {
+    0% {
+        transform: rotate(45deg) translate(0, 0);
+    }
+    50% {
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+    100% {
+        transform: rotate(45deg) translate(0, 0);
+    }
+}
+
+/* حاوية المحتوى الرئيسية */
+.profile-container {
+    background: rgba(77, 48, 125, 0);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.788);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+}
+
+/* قسم الصورة الشخصية والمعلومات */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+
+.profile-name {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.profile-title {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.profile-bio {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    max-width: 80%;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+/* أزرار التواصل الاجتماعي */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* روابط وبيانات التواصل */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 15px 20px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    text-align: right;
+}
+
+.contact-link i {
+    font-size: 22px;
+    margin-left: 12px;
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-link-text {
+    flex: 1;
+}
+
+.contact-link-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-size: 16px;
+}
+
+.contact-link-subtitle {
+    opacity: 0.8;
+    font-size: 13px;
+}
+
+/* حقوق الملكية */
+.footer {
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 500px) {
+    .profile-container {
+        padding: 20px;
+    }
+    
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .profile-bio {
+        max-width: 95%;
+    }
+}
